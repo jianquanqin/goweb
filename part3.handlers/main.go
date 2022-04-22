@@ -6,7 +6,7 @@ func main() {
 
 	//第一种方式
 	//http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-	//	http.ServeFile(w, r, "index"+r.URL.Path)
+	//	http.ServeFile(w, r, "form"+r.URL.Path)
 	//})
 	//
 	//http.ListenAndServe(":8080", nil)
