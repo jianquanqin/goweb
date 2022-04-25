@@ -9,7 +9,7 @@ import (
 func main() {
 
 	server := http.Server{
-		Addr: "localhost:8081",
+		Addr: "localhost:8080",
 	}
 
 	//http.HandleFunc("/process", func(w http.ResponseWriter, r *http.Request) {
@@ -30,17 +30,21 @@ func main() {
 
 //写一个handler
 func process(w http.ResponseWriter, r *http.Request) {
-	//r.ParseMultipartForm(1024)
+	//r.ParseMultipartForm(1024) //解析表单
 	//
-	//fileHandler := r.MultipartForm.File["uploaded"][0]
-	//file, err := fileHandler.Open()
+	//fileHandler := r.MultipartForm.File["uploaded"][0] //访问File字段
+	//file, err := fileHandler.Open()                    //获取文件
 
-	file, _, err := r.FormFile("uploaded")
+	file, _, err := r.FormFile("uploaded") //该方法能够直接获取文件而不用解析（默认是获取slice的第一个值）
 
 	if err != nil {
-		data, err := ioutil.ReadAll(file)
-		if err != nil {
-			fmt.Fprintln(w, string(data))
+		data, err := ioutil.ReadAll(file) //读取文件
+		if err == nil {
+			fmt.Fprintln(w, string(data)) //打印
 		}
 	}
+}
+
+func welcome(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Welcome!"))
 }

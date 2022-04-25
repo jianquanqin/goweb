@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Action</title>
+</head>
+<body>
+<ul>
+    <!--// . 是传入模版的数据-->
+    {{ range.}}
+    <!--// . 是 遍历的元素-->
+    <li> {{.}}</li>
+    <!--    //回落机制-->
+    {{else}}
+    <li>Nothing to show</li>
+    {{end}}
+</ul>
+</body>
+</html>
