@@ -47,7 +47,6 @@ func main() {
 	}
 	http.HandleFunc("/process", process)
 	server.ListenAndServe()
-
 }
 
 func process(w http.ResponseWriter, r *http.Request) {
