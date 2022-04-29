@@ -2184,6 +2184,6 @@ CPU的使用情况
 阻塞的Goroutine
 
 执行追踪
-Heap/profile/goroutine...
+Heap/Profile/Goroutine...
 
 比入监听网站访问、对数据库进行增删改查等
