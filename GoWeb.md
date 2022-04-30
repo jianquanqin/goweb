@@ -2141,7 +2141,7 @@ Server push 减少了请求和页面加载
 
 测试文件以_test.go 结尾
 
-测试函数需要以Test开头
+测试函数需要以Test开头，然后写明测试的是什么函数
 
 ```
 type Company struct {
