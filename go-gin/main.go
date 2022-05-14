@@ -1,6 +1,9 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
 
 //使用Gin框架
 
@@ -9,14 +12,31 @@ func main() {
 	r := gin.Default() //返回默认的路由引擎
 
 	//访问路径以及返回
-	r.GET("/hello", sayhello)
+	r.GET("/hello", sayHello)
+
+	r.POST("/hello", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "POST",
+		})
+	})
+	r.PUT("/hello", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "PUT",
+		})
+	})
+
+	r.DELETE("/hello", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "DELETE",
+		})
+	})
 
 	//启动
 	//封装了http.ListenAndServe
 	r.Run(":8080")
 }
 
-func sayhello(c *gin.Context) {
+func sayHello(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Hello Golang",
 	})
@@ -27,7 +47,7 @@ func sayhello(c *gin.Context) {
 //func main() {
 //
 //	//请求和响应在同一个函数中
-//	http.HandleFunc("/hello", sayhello)
+//	http.HandleFunc("/hello", sayHello)
 //
 //	//监听端口
 //	err := http.ListenAndServe(":8080", nil)
@@ -37,7 +57,7 @@ func sayhello(c *gin.Context) {
 //	}
 //}
 //
-//func sayhello(w http.ResponseWriter, r *http.Request) {
+//func sayHello(w http.ResponseWriter, r *http.Request) {
 //
 //	//从本地文件中读取内容
 //	b, _ := ioutil.ReadFile("./hello.html")
