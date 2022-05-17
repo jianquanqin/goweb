@@ -30,7 +30,7 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("./hello.tmpl")
 
 	if err != nil {
-		fmt.Printf("Parse template failed, err:%v", err)
+		fmt.Printf("Parse templates failed, err:%v", err)
 	}
 	//3，渲染模版
 
@@ -41,6 +41,6 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, user1)
 
 	if err != nil {
-		fmt.Printf("Render template failed, err:%v", err)
+		fmt.Printf("Render templates failed, err:%v", err)
 	}
 }

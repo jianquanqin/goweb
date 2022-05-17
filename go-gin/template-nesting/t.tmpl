@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zhCN-">
+<head>
+   <title>嵌套模版</title>
+</head>
+<body>
+
+<h1>测试嵌套template语法</h1>
+<hr>
+
+<h2>1.测试ul.tmpl</h2>
+{{ template "ul.tmpl" }}
+
+<h2>2.测试ol.tmpl</h2>
+{{ template "ol.tmpl" }}
+
+<h2>3.测试t.tmpl</h2>
+<div>你好, {{.}}</div>
+
+</body>
+</html>
+
+{{ define "ol.tmpl" }}
+<ol>
+<li>吃饭</li>  
+<li>睡觉</li>
+<li>学习</li>
+</ol>
+
+{{ end }}
